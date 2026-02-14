@@ -16,33 +16,32 @@ Ce dépôt sert de base au développement, au versioning et à la collaboration 
 
 ---
 
-## 📜 Règles de contribution
+## 🔁 Schéma du Workflow Git
 
-- Le dépôt utilise un workflow basé sur des branches et des Pull Requests.
-- Toute nouvelle fonctionnalité doit être développée dans une branche dédiée :  
-  `feature/nom-de-la-fonctionnalite`
-- Les corrections de bugs utilisent des branches :  
-  `fix/description-du-bug`
-- Les commits doivent être :
-  - Clairs
-  - Courts
-  - Avec un message explicite (ex: `feat: add basic lessons module`)
-- Aucune modification directe sur la branche `main` n’est autorisée.
-- Toute contribution doit passer par une Pull Request et être relue par l’autre membre de l’équipe.
+            feature/ma-fonctionnalite
+                     |
+                     v
+                   develop
+                     |
+                     v
+                    main
 
----
-
-## 🌿 Workflow Git
-
-Branches principales :
-- `main` : version stable du projet (production)
-- `develop` : branche d’intégration des fonctionnalités
-
-Processus de travail :
+Flux de travail :
 
 1. Créer une branche depuis `develop` :
-   ```bash
-   git checkout develop
-   git pull
-   git checkout -b feature/ma-fonctionnalite
-   ```
+   feature/ma-fonctionnalite
+
+2. Développer et faire des commits sur la branche feature
+
+3. Ouvrir une Pull Request :
+   feature/*  →  develop
+
+4. Après validation et tests :
+   develop  →  main (Release)
+
+Règles :
+- `main` : branche stable (production)
+- `develop` : branche d’intégration
+- `feature/*` : nouvelles fonctionnalités
+- Aucun push direct sur `main` (ni sur `develop` si protégé)
+- Tout passe par Pull Request + review
